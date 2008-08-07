@@ -1,0 +1,115 @@
+#!/usr/bin/make -f
+# Made with the aid of debmake, by Christoph Lameter,
+# based on the sample debian/rules file for GNU hello by Ian Jackson.
+
+#export DH_VERBOSE=1
+export DH_COMPAT=3
+
+CFLAGS = -g -Wall
+INSTALL = install
+
+ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
+  CFLAGS += -O0
+else
+  CFLAGS += -O2
+endif
+
+ifeq (,$(findstring nostrip,$(DEB_BUILD_OPTIONS)))
+  INSTALL += -s
+endif
+
+# Authoritative build/host types for the Debian archen.
+DEB_HOST_GNU_TYPE	:= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
+DEB_BUILD_GNU_TYPE	:= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
+DEB_BUILD_ARCH_CPU      := $(shell dpkg-architecture -qDEB_BUILD_ARCH_CPU)
+ifeq ($(DEB_BUILD_GNU_TYPE), $(DEB_HOST_GNU_TYPE))
+  confflags += --build $(DEB_HOST_GNU_TYPE)
+else
+  confflags += --build $(DEB_BUILD_GNU_TYPE) --host $(DEB_HOST_GNU_TYPE)
+endif
+
+#ifneq (,$(findstring $(DEB_BUILD_ARCH_CPU),"alpha amd64 ia64"))
+#  CFLAGS += -DSQLLEN=SQLLEN -DSQLULEN=SQLULEN
+#endif
+
+# The autotools target adds a forced build-time dependency on
+# autotools-dev (for /usr/share/misc/config.*)
+autotools:
+	OLDDATESUB=`./config.sub -t | tr -d - `;\
+	NEWDATESUB=`/usr/share/misc/config.sub -t | tr -d - `;\
+	if [ "$$OLDDATESUB" -lt "$$NEWDATESUB" ]; then \
+	   if [ ! -e config.sub.bak ]; then\
+	      cp -f config.sub config.sub.bak;\
+	   fi;\
+	   if [ -e config.sub.bak ]; then\
+	      cp -f /usr/share/misc/config.sub config.sub;\
+	   fi;\
+	fi
+
+configure-stamp:
+	dh_testdir
+	CPPFLAGS=-D_REENTRANT \
+	CFLAGS="${CFLAGS} -DBUILD_REAL_64_BIT_MODE" \
+	./configure $(confflags) \
+		--with-gnu-ld --with-tdsver=4.2 --prefix=/usr \
+		--disable-odbc --sysconfdir=/etc/freetds \
+		--enable-sybase-compat
+	touch configure-stamp
+
+build: autotools build-stamp
+build-stamp: configure-stamp
+	dh_testdir
+	$(MAKE)
+	touch build-stamp
+
+clean:
+	dh_testdir
+	dh_testroot
+	-rm -f build-stamp configure-stamp
+	-$(MAKE) distclean
+
+	dh_clean
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_clean -k
+	dh_installdirs -a
+
+	$(MAKE) install prefix=`pwd`/debian/tmp/usr sysconfdir=`pwd`/debian/tmp/etc/freetds
+	mv debian/tmp/etc/freetds/freetds.conf debian/libct3/usr/share/libct3
+	dh_movefiles
+
+manifest: install
+	sh ./debian/update-manifest.sh libct3 libsybdb5
+
+binary-indep:
+	@echo Nothing to do
+
+binary-arch: build install
+	dh_testdir -a
+	dh_testroot -a
+	dh_installdocs -plibct3 NEWS README TODO
+	dh_installexamples
+	dh_installchangelogs -plibct3 ChangeLog
+	dh_installdebconf -a
+	rm -rf `pwd`/debian/freetds-dev/usr/share/doc/freetds-dev
+	rm -rf `pwd`/debian/libsybdb5/usr/share/doc/libsybdb5
+	dh_strip -a
+	dh_link -a
+	dh_compress -a
+	dh_fixperms -a
+	chmod a+x ./debian/dh_makeshlibs
+	dh_installdeb -a
+	dh_shlibdeps -a
+	dh_gencontrol -a
+	dh_md5sums -a
+	dh_builddeb -a
+
+get-orig-source:
+	wget ftp://ftp.metalab.unc.edu/pub/Linux/ALPHA/freetds/freetds-0.52.tgz
+
+binary: binary-indep binary-arch
+
+.PHONY: build binary binary-arch binary-indep clean install autotools \
+	manifest

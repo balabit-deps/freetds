@@ -1,0 +1,5 @@
+freetds (0.82-syslogng30) syslogng30; urgency=low
+
+  * Initial tgz2build packaging
+
+ -- ZorpOS Maintainers <zorpos@balabit.com>  Mon, 14 Jul 2008 19:28:49 +0200
