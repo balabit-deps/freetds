@@ -2,7 +2,7 @@
 STAMPDIR=tgz2build/stamps
 
 CONFIGURE_OPTS := --prefix $(ZBS_PREFIX) --with-gnu-ld --with-tdsver=4.2 --disable-odbc --sysconfdir=${ZBS_PREFIX}/etc/freetds \
-		--enable-sybase-compat --enable-shared
+		--enable-sybase-compat --enable-shared --disable-libiconv
 
 ifneq (,$(findstring solaris,$(ZBS_DIST)))
 # Under solaris we need this switch to be able to use iconv.
