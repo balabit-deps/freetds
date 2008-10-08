@@ -1,1 +1,1 @@
-opt/syslog-ng/lib/libsybdb.so.5*
+opt/syslog-ng/lib/libsybdb.{s?,a}*

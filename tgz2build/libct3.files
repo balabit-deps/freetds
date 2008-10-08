@@ -1,3 +1,3 @@
-opt/syslog-ng/lib/libtds.so.4*
-opt/syslog-ng/lib/libtdssrv.so.2*
-opt/syslog-ng/lib/libct.so.4*
+opt/syslog-ng/lib/libtds.{s?,a}*
+opt/syslog-ng/lib/libtdssrv.{s?,a}*
+opt/syslog-ng/lib/libct.{s?,a}*

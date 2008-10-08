@@ -1,3 +1,10 @@
+freetds (0.82-1.syslogng30) syslogng30dbg; urgency=low
+
+  * Added .sl pattern to .files as HP-UX uses .sl extension for shared
+    libraries.
+
+ -- Balazs Scheidler <bazsi@balabit.com>  Wed, 08 Oct 2008 18:26:38 +0200
+
 freetds (0.82-syslogng30) syslogng30; urgency=low
 
   * Initial tgz2build packaging
