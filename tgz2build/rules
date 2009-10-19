@@ -30,7 +30,7 @@ $(STAMPDIR)/stamp-setup:
 	touch $@
 
 configure: $(STAMPDIR)/stamp-configure
-	./configure $(CONFIGURE_OPTS)
+	$(SHELL) ./configure $(CONFIGURE_OPTS)
 	touch $@
 
 $(STAMPDIR)/stamp-configure: setup
