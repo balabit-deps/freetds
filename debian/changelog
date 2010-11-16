@@ -1,3 +1,9 @@
+freetds (0.82-3.syslogng40) syslogng40; urgency=low
+
+  * release for syslog-ng 4.0
+
+ -- Tamas Pal <folti@balabit.com>  Mon, 19 Oct 2009 14:32:40 +0200
+
 freetds (0.82-2.syslogng30) syslogng30; urgency=low
 
   * freetds compiles properly on Solaris-9/x86.
