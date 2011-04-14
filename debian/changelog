@@ -1,3 +1,10 @@
+freetds (0.82-2.syslogng41.1) syslogngdeps30; urgency=low
+
+  * re-release for syslog-ng-deps-3.0
+  * packaging and builder fixes
+
+ -- Tamas Pal <folti@balabit.com>  Thu, 14 Apr 2011 18:02:28 +0200
+
 freetds (0.82-2.syslogng30) syslogng30; urgency=low
 
   * freetds compiles properly on Solaris-9/x86.
