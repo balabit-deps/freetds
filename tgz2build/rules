@@ -10,15 +10,16 @@ ifneq (,$(findstring solaris,$(ZBS_DIST)))
 endif
 
 ifneq (,$(findstring hpux,$(ZBS_DIST)))
-# Under hpux we need this switch to be able to use iconv.
   CONFIGURE_OPTS +=
 endif
 
 ifneq (,$(findstring aix,$(ZBS_DIST)))
-# Under hpux we need this switch to be able to use iconv.
   CONFIGURE_OPTS +=
 endif
 
+ifneq (,$(findstring solaris,$(ZBS_DIST)))
+  LDFLAGS += -Wl,-R/opt/syslog-ng/lib
+endif
 
 all: binary
 
@@ -31,7 +32,7 @@ $(STAMPDIR)/stamp-setup:
 
 configure: $(STAMPDIR)/stamp-configure
 $(STAMPDIR)/stamp-configure: setup
-	$(SHELL) ./configure $(CONFIGURE_OPTS)
+	LDFLAGS="$(LDFLAGS)" $(SHELL) ./configure $(CONFIGURE_OPTS)
 	touch $@
 
 
