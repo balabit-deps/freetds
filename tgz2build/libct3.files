@@ -1,6 +1,9 @@
 opt/syslog-ng/lib/libtds.s[o,l]?*
+opt/syslog-ng/lib/libtds*.dylib
 opt/syslog-ng/lib/libtds.a
 opt/syslog-ng/lib/libtdssrv.s[o,l]?*
+opt/syslog-ng/lib/libtdssrv*.dylib
 opt/syslog-ng/lib/libtdssrv.a
 opt/syslog-ng/lib/libct.s[o,l]*
+opt/syslog-ng/lib/libct*.dylib
 opt/syslog-ng/lib/libct.a

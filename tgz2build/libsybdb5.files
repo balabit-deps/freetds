@@ -1,2 +1,3 @@
+opt/syslog-ng/lib/libsybdb*.dylib
 opt/syslog-ng/lib/libsybdb.s[o,l]*
 opt/syslog-ng/lib/libsybdb.a
