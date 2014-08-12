@@ -2512,7 +2512,8 @@ tds_process_msg(TDSSOCKET * tds, int marker)
 		/* EED can be followed to PARAMFMT/PARAMS, do not store it in dynamic */
 		tds->cur_dyn = NULL;
 
-		if (tds->tds_ctx->msg_handler) {
+		/* msg.priv_msg_type = 1 means it is contained higher severity message or error message */
+		if (msg.priv_msg_type == 1 && tds->tds_ctx->msg_handler) {
 			tdsdump_log(TDS_DBG_ERROR, "tds_process_msg() calling client msg handler\n");
 			tds->tds_ctx->msg_handler(tds->tds_ctx, tds, &msg);
 		} else if (msg.msgno) {
