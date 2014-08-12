@@ -2493,7 +2493,7 @@ tds_process_info(TDSSOCKET * tds, int marker)
 		/* here mssql say "Executing SQL directly; no cursor." opening cursor */
 	} else {
 
-		if (tds_get_ctx(tds)->msg_handler) {
+		if (msg.priv_msg_type == 1 && tds_get_ctx(tds)->msg_handler) {
 			tdsdump_log(TDS_DBG_ERROR, "tds_process_info() calling client msg handler\n");
 			tds_get_ctx(tds)->msg_handler(tds_get_ctx(tds), tds, &msg);
 		} else if (msg.msgno) {
