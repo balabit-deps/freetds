@@ -6,7 +6,7 @@ case "$cmd" in
   build-exclude-list|dist-exclude-list|prepare-dist)
     ;;
   bootstrap)
-    NOCONFIGURE=1 sh autogen.sh
+    autoreconf -i
     ;;
   configure)
     ./configure $@
