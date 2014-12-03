@@ -6,7 +6,7 @@ case "$cmd" in
   build-exclude-list|dist-exclude-list|prepare-dist)
     ;;
   bootstrap)
-    autoreconf -i
+    autoreconf || autoreconf --install
     ;;
   configure)
     ./configure $@
