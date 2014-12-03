@@ -1,7 +1,7 @@
-from AutotoolsBuilder import AutotoolsBuilder
+from BalabitBuilder import BalabitBuilder
 
 def get_builder():
-    return AutotoolsBuilder(get_default_config_opts())
+    return BalabitBuilder(get_default_config_opts())
 
 def get_default_config_opts():
     try:
