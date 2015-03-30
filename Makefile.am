@@ -3,7 +3,7 @@
 ## SUBDIRS determines in which directories automake will generate a Makefile
 ## See also AC_OUTPUT in configure.in
 
-SUBDIRS	=	include src doc samples win32
+SUBDIRS	=	include src samples win32
 
 ACLOCAL_AMFLAGS = -I m4
 
@@ -21,7 +21,6 @@ EXTRA_DIST = 	$(VMS) interfaces PWD.in BUGS \
 
 
 ETC	=	$(DESTDIR)$(sysconfdir)
-DOCDIR	=	doc/doc/freetds-$(VERSION)
 
 install-data-local:
 	$(mkinstalldirs) $(ETC)
@@ -58,15 +57,4 @@ endif
 
 snapshot:
 	$(MAKE) dist distdir=$(PACKAGE)-`date +"%Y%m%d"`
-
-## The doxygen configuration file understands environment variables.  
-doxy: $(SUBDIRS)
-if HAVE_DOXYGEN
-	$(mkinstalldirs) $(DOCDIR)/reference
-	rm -rf $(DOCDIR)/reference/*
-	SRCDIR=$(top_srcdir) VERSION=$(VERSION) $(DOXYGEN) $(top_srcdir)/tds.dox
-	if test -d $(DOCDIR)/reference/html ; then mv $(DOCDIR)/reference/html/* $(DOCDIR)/reference; rmdir $(DOCDIR)/reference/html; fi
-else
-	echo 'Doxygen not installed; reference manual not built.'
-endif
 
