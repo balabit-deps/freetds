@@ -17,7 +17,7 @@ VMS	=	vms/config_h.vms \
 
 EXTRA_DIST = 	$(VMS) interfaces PWD.in BUGS \
 		freetds.conf locales.conf \
-		autogen.sh freetds.spec.in freetds.spec tds.dox 
+		freetds.spec.in freetds.spec tds.dox
 
 
 ETC	=	$(DESTDIR)$(sysconfdir)
