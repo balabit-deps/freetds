@@ -750,7 +750,6 @@ AC_CONFIG_FILES(include/tdsver.h \
 	include/tds_sysdep_public.h \
 	Makefile \
 	include/Makefile \
-	doc/Makefile \
 	samples/Makefile \
 	src/Makefile \
 		src/tds/Makefile src/tds/unittests/Makefile \

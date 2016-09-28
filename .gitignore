@@ -39,4 +39,5 @@ typescript
 ylwrap
 test-driver
 sbuild.py
-sbuild/build
+sbuild/*
+!sbuild/config.yml
