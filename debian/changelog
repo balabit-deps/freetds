@@ -1,3 +1,9 @@
+freetds (0.82-2.syslogng53.3) syslogng53; urgency=low
+
+  * release for syslog-ng-6.0.7
+
+ -- kokan <peter.kokai@balabit.com>  Thu, 31 Aug 2017 13:11:59 +0200
+
 freetds (0.82-2.syslogng53.2) syslogng53; urgency=low
 
   * release for syslog-ng-5.3.0alpha2
