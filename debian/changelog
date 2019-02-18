@@ -1,0 +1,67 @@
+freetds (0.82-2.syslogng53.3) syslogng53; urgency=low
+
+  * release for syslog-ng-6.0.7
+
+ -- kokan <peter.kokai@balabit.com>  Thu, 31 Aug 2017 13:11:59 +0200
+
+freetds (0.82-2.syslogng53.2) syslogng53; urgency=low
+
+  * release for syslog-ng-5.3.0alpha2
+
+ -- jviktor <jviktor@balabit.com>  Wed, 03 Dec 2014 16:49:11 +0100
+
+freetds (0.82-2.syslogng53.1) syslogng53; urgency=low
+
+  * release for syslog-ng-5.3
+
+ -- Tusa Viktor <tusa@tusa.balabit>  Tue, 21 Oct 2014 12:30:49 +0200
+
+freetds (0.82-2.syslogng52.2) syslogng52; urgency=low
+
+  * some bugfixes are forward ported
+
+ -- jviktor <jviktor@devel-57>  Thu, 28 Aug 2014 12:30:35 +0200
+
+freetds (0.82-2.syslogng52.1) syslogng52; urgency=low
+
+  * release for syslog-ng-5.2
+
+ -- jviktor <jviktor@devel-57>  Fri, 06 Jun 2014 14:49:21 +0200
+
+freetds (0.82-2.syslogng51.1) syslogngdeps51; urgency=low
+
+  * release for syslog-ng-5.1
+
+ -- Laszlo Budai <lbudai@balabit.com>  Mon, 03 Mar 2014 11:59:24 +0100
+
+freetds (0.82-2.syslogng50.1) syslogngdeps50; urgency=low
+
+  * release for syslog-ng-5.0
+
+ -- Laszlo Budai <lbudai@balabit.com>  Fri, 13 Sep 2013 09:27:13 +0200
+
+freetds (0.82-2.syslogng41.1) syslogngdeps30; urgency=low
+
+  * re-release for syslog-ng-deps-3.0
+  * packaging and builder fixes
+
+ -- Tamas Pal <folti@balabit.com>  Thu, 14 Apr 2011 18:02:28 +0200
+
+freetds (0.82-2.syslogng30) syslogng30; urgency=low
+
+  * freetds compiles properly on Solaris-9/x86.
+
+ -- Tamas Pal <folti@balabit.com>  Mon, 19 Oct 2009 14:32:40 +0200
+
+freetds (0.82-1.syslogng30) syslogng30dbg; urgency=low
+
+  * Added .sl pattern to .files as HP-UX uses .sl extension for shared
+    libraries.
+
+ -- Balazs Scheidler <bazsi@balabit.com>  Wed, 08 Oct 2008 18:26:38 +0200
+
+freetds (0.82-syslogng30) syslogng30; urgency=low
+
+  * Initial tgz2build packaging
+
+ -- ZorpOS Maintainers <zorpos@balabit.com>  Mon, 14 Jul 2008 19:28:49 +0200

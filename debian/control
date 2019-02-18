@@ -1,0 +1,24 @@
+Source: freetds
+Section: libs
+Priority: optional
+Maintainer: ZorpOS Maintainers  <zorpos@balabit.com>
+Standards-Version: 3.5.8
+
+Package: libct3
+Architecture: any
+Description: libraries for connecting to MS SQL and Sybase SQL servers
+ Dummy package1
+ .
+ 
+Package: libsybdb5
+Architecture: any
+Description: libraries for connecting to MS SQL and Sybase SQL servers
+ Dummy package2
+ .
+
+Package: freetds-dev
+Section: devel
+Architecture: any
+Description: MS SQL and Sybase client library (static libs and headers)
+ Dummy package3
+ .
