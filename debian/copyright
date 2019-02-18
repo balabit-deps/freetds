@@ -1,0 +1,42 @@
+This package was debianized by Steve Langasek vorlon@dodds.net on
+Tue,  7 Nov 2000 09:15:40 -0600.
+
+It was downloaded from ftp://ftp.metalab.unc.edu/pub/Linux/ALPHA/freetds/
+
+Authors:
+
+ Brian Bruns <camber@ais.org>
+ Started this crazy thing
+
+ Gregg Jensen <greggj@savvis.com>
+ Message handlers and extra datatype support and some sybperl stuff?
+
+ Arno Pedusaar <psaar@fenar.ee>
+ Donated his TDS4.2 code to the cause
+
+ Mihai Ibanescu <misa@dntis.ro>
+ GNUified the packet
+
+ Craig Spannring <cts@internetcds.com>
+ JDBC driver and CVS repository.
+
+ Mark Schaal <mark@champ.tstonramp.com>
+ Cleaned up message handling, bug fixes
+
+ Kevin Lyons <kevin@nol.org>
+ Various TDS bug fixes
+
+ Sam Tetherow<tetherow@nol.org>
+ Various TDS bug fixes
+
+ Thanks go to the folks at A2i, Inc. (http://www.a2i.com) for funding the 
+ development of dblib host file bulk copy and writetext support, and to Dave 
+ Poyourow there for helping with the debugging.
+
+Copyright:
+
+FreeTDS is copyright (C) 1998-1999  Brian Bruns and is licensed under the
+GNU LGPL license.
+
+On Debian GNU/Linux systems, the complete text of the GNU Lesser General
+Public License can be found in /usr/share/common-licenses/LGPL'.

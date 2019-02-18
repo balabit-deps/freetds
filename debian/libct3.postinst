@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -e
+
+# Install a reasonable default on initial config
+
+if [ -z "$2" ]; then
+    cp -a /usr/share/libct3/freetds.conf /etc/freetds/
+fi
+
+#DEBHELPER#

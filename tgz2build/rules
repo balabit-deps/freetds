@@ -1,0 +1,52 @@
+#!/usr/local/bin/make -f                                                                                                                                           
+STAMPDIR=tgz2build/stamps
+
+CONFIGURE_OPTS := --prefix $(ZBS_PREFIX) --with-gnu-ld --with-tdsver=7.1 --disable-odbc --sysconfdir=${ZBS_PREFIX}/etc/freetds \
+		--enable-sybase-compat --enable-shared --with-libiconv-prefix=${ZBS_PREFIX} --disable-apps --disable-pool --disable-server
+
+ifneq (,$(findstring solaris,$(ZBS_DIST)))
+# Under solaris we need this switch to be able to use iconv.
+  CONFIGURE_OPTS +=
+endif
+
+ifneq (,$(findstring hpux,$(ZBS_DIST)))
+  CONFIGURE_OPTS +=
+endif
+
+ifneq (,$(findstring aix,$(ZBS_DIST)))
+  CONFIGURE_OPTS +=
+endif
+
+ifneq (,$(findstring solaris,$(ZBS_DIST)))
+  LDFLAGS += -Wl,-R/opt/syslog-ng/lib
+endif
+
+all: binary
+
+binary: setup configure build install
+
+setup:  $(STAMPDIR)/stamp-setup
+$(STAMPDIR)/stamp-setup:
+	mkdir tgz2build/stamps || true
+	touch $@
+
+configure: $(STAMPDIR)/stamp-configure
+$(STAMPDIR)/stamp-configure: setup
+	LDFLAGS="$(LDFLAGS)" $(SHELL) ./configure $(CONFIGURE_OPTS)
+	touch $@
+
+
+build:  $(STAMPDIR)/stamp-build
+$(STAMPDIR)/stamp-build: configure 
+	$(MAKE) 
+	touch $@
+install: $(STAMPDIR)/stamp-install
+$(STAMPDIR)/stamp-install: build
+	rm -rf $(ZBS_STAGE_DIR) || true
+	$(MAKE) install DESTDIR=$(ZBS_STAGE_DIR)
+	touch $@
+clean:
+	rm -rf tgz2build/stamps || true
+	rm -rf tgz2build/staging || true
+	$(MAKE) clean
+	
