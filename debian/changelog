@@ -1,3 +1,9 @@
+freetds (1.00-1.syslogng70.1) syslogng70; urgency=low
+
+  * release for syslog-ng-7.0.14
+
+ -- Attila Szakacs <attila.szakacs@balabit.com>  Mon, 11 Mar 2019 12:15:24 +0100
+
 freetds (1.00-1.syslogng60.1) syslogng60; urgency=low
 
   * release for syslog-ng-6.0.16
