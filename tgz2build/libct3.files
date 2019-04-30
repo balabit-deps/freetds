@@ -7,3 +7,5 @@ opt/syslog-ng/lib/libtdssrv.a
 opt/syslog-ng/lib/libct.s[o,l]*
 opt/syslog-ng/lib/libct*.dylib
 opt/syslog-ng/lib/libct.a
+opt/syslog-ng/lib/libtdsodbc.so*
+opt/syslog-ng/lib/libtdsodbc.a
