@@ -1,7 +1,16 @@
 name: freetds
 builder:
   name: AutotoolsBuilder
-  configure_options: "--with-gnu-ld --with-tdsver=7.1 --with-unixodbc=@@installdir@@ --enable-sybase-compat --enable-shared --disable-apps --disable-pool --disable-server"
+  configure_options: >
+    --with-gnu-ld
+    --with-tdsver=7.1
+    --with-unixodbc=@@installdir@@
+    --enable-sybase-compat
+    --enable-shared
+    --disable-apps
+    --disable-pool
+    --disable-server
+    --with-openssl=@@installdir@@
   environments:
     NOCONFIGURE: "1"
 platforms:
