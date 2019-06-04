@@ -1,3 +1,4 @@
 libodbc
 unixodbc
 unixodbc-dev
+openssl
