@@ -1,3 +1,9 @@
+freetds (1.00-2.syslogng70.1) syslogng70; urgency=low
+
+  * update to openssl 1.1.1d
+
+ -- Laszlo Szemere <laszlo.szemere@oneidentity.com>  Tue, 21 Jan 2020 13:39:33 +0100
+
 freetds (1.00-1.syslogng70.1) syslogng70; urgency=low
 
   * release for syslog-ng-7.0.14
