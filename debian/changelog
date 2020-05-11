@@ -1,3 +1,9 @@
+freetds (1.00-3.syslogng70.1) syslogng70; urgency=low
+
+  * enabled odbc support
+
+ -- Attila Szakacs <attila.szakacs@oneidentity.com>  Mon, 11 May 2020 13:54:47 +0200
+
 freetds (1.00-2.syslogng70.1) syslogng70; urgency=low
 
   * update to openssl 1.1.1d
