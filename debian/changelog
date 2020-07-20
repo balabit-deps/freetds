@@ -1,3 +1,9 @@
+freetds (1.00-1.syslogng60.2) syslogng60; urgency=low
+
+  * updated openssl to 1.1.1g on PE6
+
+ -- Attila Szakacs <attila.szakacs@quest.com>  Mon, 20 Jul 2020 15:14:36 +0200
+
 freetds (1.00-1.syslogng60.1) syslogng60; urgency=low
 
   * release for syslog-ng-6.0.16
