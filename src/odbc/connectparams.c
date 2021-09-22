@@ -283,7 +283,7 @@ odbc_parse_connect_string(TDS_ERRS *errs, const char *connect_string, const char
 	DSTR *dest_s, value = DSTR_INITIALIZER;
 	enum { CFG_DSN = 1, CFG_SERVER = 2, CFG_SERVERNAME = 4 };
 	unsigned int cfgs = 0;	/* flags for indicate second parse of string */
-	char option[24];
+	char option[1024];
 	int trusted = 0;
 
 	if (parsed_params)
