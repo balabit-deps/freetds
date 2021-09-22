@@ -596,9 +596,22 @@ if test "x$with_unixodbc" = "xyes"; then
 	fi
 fi
 
+PKG_CHECK_MODULES(UNIXODBC, odbc, pkg_odbc="yes", pkg_odbc="no")
+
+# Note: this ignores the case when it configured to no
+if test "x$pkg_odbc" = "xyes"; then
+	# Note: this is kinda a lie, as odbc could be not unixodbc,
+	#       but this is okay for us.
+	CPPFLAGS="$CPPFLAGS -DUNIXODBC"
+	ODBC_LDFLAGS="$UNIXODBC_LIBS"
+	ODBC_INC="$UNIXODBC_CFLAGS"
+
+	odbc=true
+	unixodbc=true
+
 # Note: the --with-unixodbc=yes case will make use of this one,
 # after populating $with_unixodbc with the correct prefix.
-if test "x$with_unixodbc" != "x" -a "x$with_unixodbc" != "xno"; then
+elif test "x$with_unixodbc" != "x" -a "x$with_unixodbc" != "xno"; then
 	if test "x$with_iodbc" != "x" -a "x$with_iodbc" != "xno"; then
 		AC_MSG_ERROR([choose at most one of --with-iodbc or --with-unixodbc])
 	fi
