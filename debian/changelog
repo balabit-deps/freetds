@@ -1,3 +1,10 @@
+freetds (1.3-1.syslogng70.1) syslogng70; urgency=low
+
+  * update freetds to 1.3
+  * allow connection string to pass freetds.conf options
+
+ -- Kokan <kokaipeter@gmail.com>  Tue, 12 Oct 2021 07:00:47 +0200
+
 freetds (1.00-3.syslogng70.1) syslogng70; urgency=low
 
   * enabled odbc support
