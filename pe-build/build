@@ -1,0 +1,26 @@
+source="freetds"
+version=1.3-pe-1
+dependencies=(
+  'unixodbc' 'unixodbc-dev' 'libodbc'
+  'libssl' 'libssl-dev' 'openssl'
+  'libiconv' 'libiconv-dev'
+  'gettext' 'gettext-dev'
+  'zlib' 'zlib-dev'
+)
+
+bootstrap() {
+  NOCONFIGURE=1 ./autogen.sh
+}
+
+build() {
+  cd "${build_dir}"
+  ${src_dir}/configure --prefix="${prefix}"  --with-gnu-ld --with-tdsver=7.1 --with-unixodbc="${prefix}" \
+    --sysconfdir="${prefix}/etc/freetds" --enable-sybase-compat --enable-shared --with-libiconv-prefix="${prefix}" \
+    --disable-apps --disable-pool --disable-server --with-openssl="${prefix}"
+
+  make
+}
+
+install() {
+  make -C "${build_dir}" DESTDIR="${dest_dir}" install
+}
